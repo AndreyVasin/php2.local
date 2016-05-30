@@ -34,7 +34,6 @@ abstract class Model
       $columns[] = $k;
       $values[':'.$k] = $v;
     }
-    //var_dump($values);
 
     $sql = 'INSERT INTO ' . static::TABLE . ' 
             (' . implode(',', $columns) . ')
@@ -42,6 +41,6 @@ abstract class Model
             (' . implode(',', array_keys($values)) . ')
             ';
     $db = Db::instance();
-    $db->execute($sql, $values); 
+    $db->execute($sql, $values);
   }
 }
