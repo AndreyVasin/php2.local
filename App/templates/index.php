@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Test</title>
+  <title><?php echo $this->title ?></title>
 
   <!-- Bootstrap -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -21,18 +21,18 @@
 
 <h1>Пользователь</h1>
 
-<?php foreach ($users as $user) {?>
+<?php foreach ($this->users as $user) :?>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <?php if (!empty($user->name)) { ?>
+    <?php if (!empty($user->name)) : ?>
     <?php echo $user->name; ?>
-    <?php } else { ?>
+    <?php else : ?>
     -= Без имени =-
-    <?php } ?>
+    <?php endif; ?>
   </div>
   <div class="panel-body"><?php echo $user->email; ?></div>
 </div>
-<?php } ?>
+<?php endforeach; ?>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
