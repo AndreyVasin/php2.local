@@ -29,4 +29,11 @@ class News
     $this->view->news = \App\Models\News::findAll();
     echo $this->view->render(__DIR__ . '/../templates/index.php');
   }
+
+  protected function actionOne()
+  {
+    $id = (int)$_GET['id'];
+    $this->view->article = \App\Models\News::findById($id);
+    echo $this->view->render(__DIR__ . '/../templates/one.php');
+  }
 }
