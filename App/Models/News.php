@@ -19,7 +19,7 @@ class News extends Model
 
   /**
    * LASY LOAD
-   * 
+   *
    * @param $k
    * @return null
    */
@@ -31,6 +31,17 @@ class News extends Model
         break;
       default:
         return null;
+    }
+  }
+
+  public function __isset($k)
+  {
+    switch ($k){
+      case 'author':
+        return !empty($this->author_id);
+        break;
+      default:
+        return false;
     }
   }
 }
