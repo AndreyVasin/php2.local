@@ -5,4 +5,7 @@ require __DIR__ . '/autoload.php';
 $view = new  \App\View();
 
 $contoller = new \App\Controlers\News();
-$contoller->action('Index');
+
+$action = $_GET['action'] ?: 'Index';
+
+$contoller->action($action);
