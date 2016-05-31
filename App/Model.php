@@ -15,6 +15,14 @@ abstract class Model
       static::class);
   }
 
+  public static function findById($id)
+  {
+    $db = Db::instance();
+    return $db->query(
+      'SELECT * FROM ' . static::TABLE . ' WHERE id = :id',
+      static::class, [':id' => $id]);
+  }
+
   public function isNew()
   {
     return empty($this->id);
@@ -44,3 +52,4 @@ abstract class Model
     $db->execute($sql, $values);
   }
 }
+
