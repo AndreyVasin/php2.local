@@ -2,7 +2,7 @@
 
 require __DIR__ . '/autoload.php';
 
-$view = new  \App\View();
+$url = $_SERVER['REQUEST_URI'];
 
 $contoller = new \App\Controlers\News();
 
