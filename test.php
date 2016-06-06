@@ -2,5 +2,13 @@
 
 require __DIR__ . '/autoload.php';
 
-$news = \App\Models\News::findAll();
-var_dump($news[0]->author);
+$a = new \App\Collection();
+$a[] = 1;
+$a[1] = 11;
+$a[2]=234;
+
+//var_dump($a);
+
+foreach ($a as $el){
+  echo $el;
+}

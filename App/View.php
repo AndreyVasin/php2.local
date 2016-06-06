@@ -29,6 +29,9 @@ class View implements \Countable
     return $content;
   }
 
+  /**
+   * @param $template string Путь к шаблону
+   */
   public function display($template)
   {
     echo $this->render($template);

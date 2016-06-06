@@ -1,6 +1,8 @@
 <?php
 namespace App\Controlers;
 
+use App\Exceptions\Core;
+use App\MultiException;
 use App\View;
 
 class News
@@ -21,6 +23,7 @@ class News
 
   protected function beforeAction()
   {
+    $ex = new Core();
   }
 
   protected function actionIndex()
@@ -35,5 +38,18 @@ class News
     $id = (int)$_GET['id'];
     $this->view->article = \App\Models\News::findById($id);
     echo $this->view->render(__DIR__ . '/../templates/one.php');
+  }
+
+  protected function actionCreate()
+  {
+    try {
+      $article = new \App\Models\News();
+      $article->fill([]);
+      $article->save();
+    } catch (MultiException $e) {
+      $this->view->errors = $e;
+    }
+    echo $this->view->render(__DIR__ . '/../templates/create.php');
+
   }
 }

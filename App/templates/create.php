@@ -19,19 +19,25 @@
 </head>
 <body>
 
+<?php foreach ($errors as $error) : ?>
+  <div class="alert alert-danger">
+    <?php echo $error->getMessage() ; ?>
+  </div>
+<?php endforeach; ?>
+
 <h1>Одна новость</h1>
 
 <div class="panel panel-default">
   <div class="panel-heading">
     <?php if (!empty($article->title)) : ?>
-    <?php echo $article->title; ?>
+      <?php echo $article->title; ?>
     <?php else : ?>
-    -= Без имени =-
+      -= Без имени =-
     <?php endif; ?>
   </div>
   <div class="panel-body">
     <?php if (!empty($article->author)) : ?>
-    Автор: <?php echo $article->author->name; ?>
+      Автор: <?php echo $article->author->name; ?>
     <?php endif; ?>
   </div>
 </div>

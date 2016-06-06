@@ -21,21 +21,21 @@
 
 <h1>Все новости</h1>
 
-<?php foreach ($news as $article) :?>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <?php if (!empty($article->title)) : ?>
-    <?php echo $article->title; ?>
-    <?php else : ?>
-    -= Без имени =-
-    <?php endif; ?>
+<?php foreach ($news as $article) : ?>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <?php if (!empty($article->title)) : ?>
+        <?php echo $article->title; ?>
+      <?php else : ?>
+        -= Без имени =-
+      <?php endif; ?>
+    </div>
+    <div class="panel-body">
+      <?php if (!empty($article->author)) : ?>
+        Автор: <?php echo $article->author->name; ?>
+      <?php endif; ?>
+    </div>
   </div>
-  <div class="panel-body">
-    <?php if (!empty($article->author)) : ?>
-    Автор: <?php echo $article->author->name; ?>
-    <?php endif; ?>
-  </div>
-</div>
 <?php endforeach; ?>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
